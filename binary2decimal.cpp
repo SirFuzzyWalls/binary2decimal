@@ -9,18 +9,19 @@ converted and output to the console as a decimal value.
 #include <cmath>
 
 int convertToDecimal(const std::string inString);
+
 int main()
 {
-
     char choice = 'y'; 
 
-    while (choice != 'n')
-    {
+    while (choice != 'n') {
         int decimal = 0; 
         std::string inBinary;
-        
         std::cout << "Please enter up to 8 binary digits now: ";
         std::cin >> inBinary;
+
+        //very basic input validation
+        std::cin.ignore(200, '\n'); 
         decimal = convertToDecimal(inBinary); 
         std::cout << "\nYou entered: " << inBinary << std::endl;
         std::cout << "In decimal form that is: " << decimal << std::endl;
@@ -29,7 +30,9 @@ int main()
     }
 
 }
-
+/*
+Takes the incomming string and converts it to a decimal value, stored as an int, then returns said value.
+*/
 int convertToDecimal(const std::string inString)
 {
     int bLength = inString.length();
